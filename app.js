@@ -6,6 +6,7 @@ var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/user');
+var restaurant = require('./routes/restaurant');
 
 const DEFAULT_PORT = 80;
 
@@ -16,8 +17,10 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname , 'views')));
 
+// routes
 app.use('/', routes);
 app.use('/user', users);
+app.use('/restaurant', restaurant);
 
 // session
 app.use(session({

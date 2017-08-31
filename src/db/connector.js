@@ -2,16 +2,16 @@
 var mysql = require('mysql');
 
 var pool = mysql.createPool({
-	host : '43.248.96.156',
-	user : 'root',
+	host     : '43.248.96.156',
+	user     : 'root',
 	password : '123456',
-	port : '3306',
-	database: 'iwannaeat',
+	port     : '3306',
+	database : 'iwannaeat',
+    charset  : 'gbk',
 });
 
 var query = function(sql, param, callback) {
     pool.query(sql, param, function(err, result, fields) {
-        console.log(result);
         callback(err, result, fields);
     });
     // pool.getConnection(function(err, conn) {
@@ -29,9 +29,10 @@ var query = function(sql, param, callback) {
     // });
 };
 
-var sql = require('../db/sql.js')['RESTAURANT']
-query(sql['query'], ['123'], function(err, result, fields) {
-    console.log('result: ' , 123);
-});
+// var sql = require('../db/sql.js')['RESTAURANT']
+// var ans = query(sql['query'], ['1'], function(err, result, fields) {
+//     // console.log(result[0]);
+// });
+// console.log(ans);
 
 module.exports = query;

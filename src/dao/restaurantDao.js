@@ -3,16 +3,13 @@ var query = require('../db/connector.js')
 var sql = require('../db/sql.js')['RESTAURANT']
 
 function restaurantDao() {
-	this.queryRestaurant = function(userId) {
-		query(sql['query'], userId, function(err, result, fields) {
-			console.log(sql['query']);
-			console.log('result: ' , err);
-		});
+	this.query = function(userId, callback) {
+		query(sql['query'], userId, callback);
 	}
 }
 
-restaurantDao = new restaurantDao();
-var userId = 1;
-restaurantDao.queryRestaurant(userId);
+// dao = new restaurantDao();
+// var result = dao.query(1);
+// console.log(result);
 
 module.exports = restaurantDao;
