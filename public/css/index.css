@@ -1,0 +1,125 @@
+/*index.css*/
+
+html, body {
+	height: 100%;
+	font-size: 16px;
+	background: #eee;
+	font-family:"Microsoft YaHei";
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.container {
+	margin: 0 auto;
+	width: 60rem;
+	height: 100%;
+	background: #fff;
+}
+
+.title {
+	width: 60rem;
+	height: 4rem;
+	font-size: 4rem;
+	text-align: center;
+}
+
+.restaurant-container {
+	width: 60rem;
+	height: 23rem;
+}
+
+.operation {
+	margin-top: 1rem;
+	width: 8rem;
+	height: 10rem;
+	text-align: center;
+}
+
+.selection {
+	margin-top: 1rem;
+	width: 50rem;
+	height: 10rem;
+	border: 1px solid #111;
+	border-radius: 1rem;
+}
+
+.restaurant {
+	margin: .5rem;
+	width: 5rem;
+	height: 2rem;
+	background: #009933;
+	float: left;
+	color: #eee;
+	line-height: 2rem;
+	text-align: center;
+	border-radius: 1rem;
+}
+
+.restaurant:hover {
+	cursor: pointer;
+}
+
+.add-restaurant {
+	margin: .5rem;
+	width: 2rem;
+	height: 2rem;
+	background: #11ad79;
+	float: left;
+	color: #eee;
+	line-height: 2rem;
+	text-align: center;
+	border-radius: 1rem;
+}
+
+.add-restaurant:hover {
+	cursor: pointer;
+}
+
+.del-restaurant {
+	margin: .5rem;
+	width: 2rem;
+	height: 2rem;
+	background: #FF4D55;
+	float: left;
+	color: #eee;
+	line-height: 2rem;
+	text-align: center;
+	border-radius: 1rem;
+}
+
+.del-restaurant:hover {
+	cursor: pointer;
+}
+
+.result {
+	margin: 0 auto;
+	width: 15rem;
+	height: 5rem;
+	font-size: 3rem;
+	line-height: 5rem;
+	text-align: center;
+	border: 1px solid #000;
+	border-radius: 1rem;
+}
+
+.go {
+	margin: 1rem auto;
+	width: 15rem;
+	height: 3rem;
+	font-size: 2rem;
+	color: #fff;
+	background: #009933;
+	display: block;
+	border: 0px;
+	border-radius: 1rem;
+}
+
+.go:hover {
+	cursor: pointer;
+}
