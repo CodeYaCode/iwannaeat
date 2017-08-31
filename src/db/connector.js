@@ -1,37 +1,30 @@
 // connector.js
 var mysql = require('mysql');
+var conf = require('./config')['ONLINE'];
 
-var pool = mysql.createPool({
-	host : '43.248.96.156',
-	user : 'root',
-	password : '123456',
-	port : '3306',
-	database: 'iwannaeat',
-});
+var pool = mysql.createPool(conf);
 
 var query = function(sql, param, callback) {
-    pool.query(sql, param, function(err, result, fields) {
-        console.log(result);
-        callback(err, result, fields);
+    // var result = pool.query(sql, param);
+    // console.log(result);
+    pool.getConnection(function(err, conn) {
+        if (err) {
+            callback(err, null, null);
+        } else {
+            var r = conn.query(sql, param, function(qerr, result, fields) {
+                //释放连接
+                conn.release();
+                //事件驱动回调
+                callback(qerr, result, fields);
+            });
+            console.log(r);
+        }
     });
-    // pool.getConnection(function(err, conn) {
-    //     if (err) {
-    //         callback(err, null, null);
-    //     } else {
-    //         conn.query(sql, param, function(qerr, result, fields) {
-    //             //释放连接
-    //             conn.release();
-    //             console.log(result);
-    //             //事件驱动回调
-    //             callback(qerr, result, fields);
-    //         });
-    //     }
-    // });
 };
 
 var sql = require('../db/sql.js')['RESTAURANT']
-query(sql['query'], ['123'], function(err, result, fields) {
-    console.log('result: ' , 123);
+query(sql['query'], ['123'], function(err, result, fields){
+    console.log(result);
 });
 
 module.exports = query;
