@@ -65,36 +65,45 @@ html, body {
 	cursor: pointer;
 }
 
-.add-restaurant {
+/** restaurant animation when is under threat of being delete. */
+@-moz-keyframes freaking-out {  /* Firefox */ 
+	0%   {transform: rotate(5deg);}
+	50% {transform: rotate(-5deg);}
+	100%   {transform: rotate(5deg);}
+}
+
+@-webkit-keyframes freaking-out { /* Safari 和 Chrome */ 
+	0%   {transform: rotate(5deg);}
+	50% {transform: rotate(-5deg);}
+	100%   {transform: rotate(5deg);}
+}
+
+.restaurant-to-be-del {
+    -moz-animation: freaking-out .5s infinite;	/* Firefox */
+    -webkit-animation: freaking-out .5s infinite;	/* Safari 和 Chrome */
+}
+
+.op-button {
 	margin: .5rem;
 	width: 2rem;
 	height: 2rem;
+	float: left;
+	color: #eee;
+	line-height: 2rem;
+	text-align: center;
+	border-radius: 1rem;
+}
+
+.op-button:hover {
+	cursor: pointer;
+}
+
+.op-green {
 	background: #11ad79;
-	float: left;
-	color: #eee;
-	line-height: 2rem;
-	text-align: center;
-	border-radius: 1rem;
 }
 
-.add-restaurant:hover {
-	cursor: pointer;
-}
-
-.del-restaurant {
-	margin: .5rem;
-	width: 2rem;
-	height: 2rem;
+.op-pink {
 	background: #FF4D55;
-	float: left;
-	color: #eee;
-	line-height: 2rem;
-	text-align: center;
-	border-radius: 1rem;
-}
-
-.del-restaurant:hover {
-	cursor: pointer;
 }
 
 .result {

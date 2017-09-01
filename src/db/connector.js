@@ -6,6 +6,9 @@ var pool = mysql.createPool(conf);
 
 var query = function(sql, param, cb) {
     pool.query(sql, param, function(err, result, fields) {
+        if (err) {
+            console.log(err);
+        }
         cb(err, result, fields);
     });
     // pool.getConnection(function(err, conn) {
@@ -23,10 +26,10 @@ var query = function(sql, param, cb) {
     // });
 };
 
-var sql = require('../db/sql.js')['RESTAURANT']
-query(sql['query'], ['1'], function(err, result, fields){
-    console.log(result);
-});
+// var sql = require('../db/sql.js')['RESTAURANT']
+// query(sql['query'], ['1'], function(err, result, fields){
+//     console.log(result);
+// });
 
 
 module.exports = query;
