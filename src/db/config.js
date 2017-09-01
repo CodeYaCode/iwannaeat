@@ -8,7 +8,7 @@ CONFIG['ONLINE'] = {
 	password : '123456',
 	port     : '3306',
 	database : 'iwannaeat',
-	charset  : 'gbk',
+	// charset  : '',
 }
 
 CONFIG['TEST'] = {
@@ -17,7 +17,6 @@ CONFIG['TEST'] = {
 	password : '123456',
 	port     : '3306',
 	database : 'iwannaeat',
-	charset  : 'gbk',
 }
 
 module.exports = CONFIG

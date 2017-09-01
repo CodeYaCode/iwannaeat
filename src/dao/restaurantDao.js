@@ -19,8 +19,8 @@ function restaurantDao() {
 
 // restaurantDao = new restaurantDao();
 // var userId = 1;
-// var id = 2;
-// restaurantDao.add(userId, id, function(err, rows, field) {
+// var id = '麦当当';
+// restaurantDao.query(userId, function(err, rows, field) {
 // 	console.log(rows);
 // });
 
