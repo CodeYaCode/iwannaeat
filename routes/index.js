@@ -11,7 +11,9 @@ router.get('/', function(req, res, next) {
 		// 默认账号ID
 		var userId = 1;
 		var result;
-
+		restaurantService.query(userId, function(err, rows, fields) {
+			console.log(rows);
+		});
 		res.render('index', result)
 	// }
 });
