@@ -33,3 +33,31 @@ var goClick = function goClick() {
 }
 
 $('.go').on('click', goClick);
+
+$('.add-restaurant').on('click', function() {
+	$.post("/restaurant/get", function(data) {
+		data.forEach(function(value) {
+			var name = value.RESTAURANT_NAME;
+			var allSelection = $('.all-selection');
+
+			const PREFIX = '<div class="restaurant">';
+			const FIX = '</div>';
+			allSelection.append(PREFIX + name + FIX);
+			$('.restaurant').on('click', restaurantClick);
+		})
+	});
+});
+
+$(document).ready(function() {
+	$.post("/restaurant/get", function(data) {
+		data.forEach(function(value) {
+			var name = value.RESTAURANT_NAME;
+			var allSelection = $('.all-selection');
+
+			const PREFIX = '<div class="restaurant">';
+			const FIX = '</div>';
+			allSelection.append(PREFIX + name + FIX);
+			$('.restaurant').on('click', restaurantClick);
+		})
+	});
+});

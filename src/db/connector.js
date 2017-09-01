@@ -4,9 +4,10 @@ var conf = require('./config')['ONLINE'];
 
 var pool = mysql.createPool(conf);
 
-var query = function(sql, param, callback) {
-    pool.query(sql, param, callback);
-    // console.log(result);
+var query = function(sql, param, cb) {
+    pool.query(sql, param, function(err, result, fields) {
+        cb(err, result, fields);
+    });
     // pool.getConnection(function(err, conn) {
     //     if (err) {
     //         callback(err, null, null);
@@ -26,5 +27,6 @@ var sql = require('../db/sql.js')['RESTAURANT']
 query(sql['query'], ['1'], function(err, result, fields){
     console.log(result);
 });
+
 
 module.exports = query;
